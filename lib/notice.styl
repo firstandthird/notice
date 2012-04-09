@@ -1,0 +1,28 @@
+.notice
+  z-index: 1000;
+  .notice-close
+    font-family: Arial;
+    position: absolute;
+    top: 5px;
+    right: 16px;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #000;
+    opacity: 0.2;
+    text-shadow: 0 1px 0 #fff;
+
+    &:after
+      content: 'x';
+    &:hover
+      opacity: 0.5;
+    &:active
+      opacity: 0.7;
+
+.notice-error
+  background: #F2DEDE;
+  color: #B94A48;
+
+.notice-success
+  background: #DFF0D8;
+  color: #468847;
