@@ -1,0 +1,35 @@
+.notice {
+  z-index: 1000;
+  background: #f0f0f0;
+  color: #aaa;
+}
+.notice .notice-close {
+  font-family: Arial;
+  position: absolute;
+  top: 5px;
+  right: 16px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+  color: #000;
+  opacity: 0.2;
+  text-shadow: 0 1px 0 #fff;
+}
+.notice .notice-close:after {
+  content: 'x';
+}
+.notice .notice-close:hover {
+  opacity: 0.5;
+}
+.notice .notice-close:active {
+  opacity: 0.7;
+}
+.notice-error {
+  background: #f2dede;
+  color: #b94a48;
+}
+.notice-success {
+  background: #dff0d8;
+  color: #468847;
+}
+

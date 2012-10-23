@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="../dist/notice.css"/>
+    <script src="live.js"></script>
+    <style>
+      body {
+        width: 980px;
+        margin: 0 auto;
+      }
+      .btns {
+        margin-top: 40px;
+      } 
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <button>Info</button>
+      <button data-level="success">Success</button>
+      <button data-level="error">Error</button>
+      <button data-top="100">Offset Top</button>
+    </div>
+    <script src="jquery-1.8.1.min.js"></script>
+    <script src="../dist/notice.js"></script>
+    <script>
+      //$.notice.defaults.width = '300px';
+      //$.notice.defaults.offsetLeft = '300px'
+      $('button').on('click', function() {
+        var level = $(this).data('level') || 'info';
+        var top = $(this).data('top') || 0;
+
+        $.notice('this is a '+ level +' message', {
+          level: level,
+          offsetTop: top
+        });
+      });
+      $.notice('this is a test message');
+    </script>
+  </body>
+</html>

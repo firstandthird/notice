@@ -1,6 +1,8 @@
-.notice
+.notice {
   z-index: 1000;
-  .notice-close
+  background: #f0f0f0;
+  color: #aaa;
+  .notice-close {
     font-family: Arial;
     position: absolute;
     top: 5px;
@@ -12,18 +14,23 @@
     opacity: 0.2;
     text-shadow: 0 1px 0 #fff;
 
-    &:after
+    &:after {
       content: 'x';
-    &:hover
+    }
+    &:hover {
       opacity: 0.5;
-    &:active
+    }
+    &:active {
       opacity: 0.7;
-
-.notice-error
-  background: rgb(242, 222, 222);
-  background: rgba(242, 222, 222, 0.9);
+    }
+  }
+}
+.notice-error {
+  background: #f2dede;
   color: #B94A48;
+}
 
-.notice-success
+.notice-success {
   background: #DFF0D8;
   color: #468847;
+}
