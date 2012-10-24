@@ -33,6 +33,14 @@ module.exports = function(grunt) {
       dist: {
         src: ['<banner>', 'lib/notice.js'],
         dest: 'dist/notice.js'
+      },
+      css: {
+        src: ['<banner>', 'dist/notice.css'],
+        dest: 'dist/notice.css'
+      },
+      cssmin: {
+        src: ['<banner>', 'dist/notice.min.css'],
+        dest: 'dist/notice.min.css'
       }
     },
     min: {
