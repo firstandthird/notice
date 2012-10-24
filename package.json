@@ -1,0 +1,13 @@
+{
+  "name": "notice",
+  "private": true,
+  "description": "a jQuery notification plugin",
+  "version": "0.2.0",
+  "url": "https://github.com/jgallen23/notice",
+  "company": "JGA",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-stylus": "*"
+  }
+}
