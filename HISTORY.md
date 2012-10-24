@@ -1,4 +1,12 @@
 
+0.2.0 / 2012-10-24 
+==================
+
+  * updated readme
+  * updated example
+  * added themes
+  * commented options
+
 0.1.0 / 2012-10-23 
 ==================
 

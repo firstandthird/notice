@@ -1,7 +1,5 @@
 .notice {
   z-index: 1000;
-  background: #f0f0f0;
-  color: #aaa;
 }
 .notice .notice-close {
   font-family: Arial;
@@ -26,10 +24,22 @@
 }
 .notice-error {
   background: #f2dede;
-  color: #b94a48;
+  background: rgba(242,222,222,0.8);
+  color: #712d2d;
 }
 .notice-success {
   background: #dff0d8;
-  color: #468847;
+  background: rgba(223,240,216,0.8);
+  color: #3d6c2a;
+}
+.notice-info {
+  background: #f0f0f0;
+  background: rgba(240,240,240,0.8);
+  color: #575757;
+}
+.notice-warning {
+  background: #f9fad2;
+  background: rgba(249,250,210,0.8);
+  color: #888b0f;
 }
 
