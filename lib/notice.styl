@@ -1,7 +1,5 @@
 .notice {
   z-index: 1000;
-  background: #f0f0f0;
-  color: #aaa;
   .notice-close {
     font-family: Arial;
     position: absolute;
@@ -25,12 +23,14 @@
     }
   }
 }
-.notice-error {
-  background: #f2dede;
-  color: #B94A48;
+theme(name, color) {
+  .notice-{name} {
+    background: color;
+    background: rgba(color, 0.8);
+    color: darken(color, 60);
+  }
 }
-
-.notice-success {
-  background: #DFF0D8;
-  color: #468847;
-}
+theme('error', #f2dede);
+theme('success', #dff0d8);
+theme('info', #f0f0f0);
+theme('warning', #f9fad2);
