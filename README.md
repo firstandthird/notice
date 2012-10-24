@@ -41,8 +41,8 @@ $.notice.defaults = {
 ##Installation
 CSS provides some default styles, it is optional.
 
-- Development: [JS]() | [CSS]()
-- Production: [JS]() | [CSS]()
+- Development: [JS](https://raw.github.com/jgallen23/notice/master/dist/notice.js) | [CSS](https://raw.github.com/jgallen23/notice/master/dist/notice.css)
+- Production: [JS](https://raw.github.com/jgallen23/notice/master/dist/notice.min.js) | [CSS](https://raw.github.com/jgallen23/notice/master/dist/notice.min.css)
 
 ##Building
 
