@@ -47,6 +47,12 @@ CSS provides some default styles, it is optional.
 ##Building
 
 ```
-make install
-make build
+npm install
+./node_modules/.bin/grunt
+```
+
+##Development
+
+```
+./node_modules/.bin/grunt dev
 ```
