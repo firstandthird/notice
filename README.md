@@ -4,7 +4,7 @@ Notice is a jQuery plugin for simple notifications
 
 ##Usage
 
-```js
+```javascript
 //info
 $.notice('message');
 
@@ -17,7 +17,7 @@ $.notice('error', { level: 'error' });
 
 ##Options
 
-```js
+```javascript
 $.notice.defaults = {
 	//container to append notice to
 	container: 'body',
