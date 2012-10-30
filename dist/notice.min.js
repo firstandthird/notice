@@ -1,6 +1,6 @@
 /*!
  * notice - a jQuery notification plugin
- * v0.3.0
+ * v0.3.1
  * https://github.com/jgallen23/notice
  * copyright JGA 2012
  * MIT License

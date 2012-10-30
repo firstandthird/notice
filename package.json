@@ -2,7 +2,7 @@
   "name": "notice",
   "private": true,
   "description": "a jQuery notification plugin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "url": "https://github.com/jgallen23/notice",
   "company": "JGA",
   "license": "MIT",
