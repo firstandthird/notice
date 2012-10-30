@@ -1,6 +1,6 @@
 /*!
  * notice - a jQuery notification plugin
- * v0.2.0
+ * v0.3.0
  * https://github.com/jgallen23/notice
  * copyright JGA 2012
  * MIT License
@@ -32,16 +32,17 @@
       return;
     }
 
-
+    var container = $(opts.container);
+    var containerOffset = container.offset();
     el = $(opts.template)
       .css({
         zIndex: '1000',
         overflow: 'hidden',
         position: 'fixed',
-        top: opts.offsetTop,
-        left: opts.offsetLeft,
+        top: opts.offsetTop || containerOffset.top,
+        left: containerOffset.left,
         height: 0,
-        width: opts.width,
+        width: container.width(),
         margin: '0 auto',
         'line-height': opts.height+'px',
         'text-align': 'center'
@@ -55,7 +56,7 @@
           close();
         })
         .end()
-      .appendTo(opts.container)
+      .appendTo(container)
       .animate({ height: opts.height+'px'});
 
     if (typeof opts.timeout === 'number') {
@@ -79,10 +80,6 @@
     //level (info, success, error)
     level: 'info',
     //top offset for notice
-    offsetTop: 0,
-    //left offset for notice
-    offsetLeft: 0,
-    //width of notice
-    width: '100%'
+    offsetTop: 0
   };
 })(window.jQuery || window.Zepto);

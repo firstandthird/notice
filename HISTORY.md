@@ -1,4 +1,17 @@
 
+0.3.0 / 2012-10-30 
+==================
+
+  * automatically fit to it's container
+  * built css with banner
+  * added banner to css files
+  * updated readme
+  * Merge branch 'feature/grunt'
+  * built
+  * updated readme
+  * removed unnecessary files
+  * added grunt and package.json
+
 0.2.0 / 2012-10-24 
 ==================
 
