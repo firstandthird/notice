@@ -1,48 +1,16 @@
 /*!
- * notice - a jQuery notification plugin
+ * notice - A notification plugin
  * v0.3.1
  * https://github.com/jgallen23/notice
- * copyright JGA 2012
+ * copyright Greg Allen 2013
  * MIT License
 */
-
-.notice {
-  z-index: 1000;
-}
-.notice .notice-close {
-  font-family: Arial;
-  position: absolute;
-  top: 5px;
-  right: 16px;
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: bold;
-  color: #000;
-  opacity: 0.2;
-  text-shadow: 0 1px 0 #fff;
-}
-.notice .notice-close:after {
-  content: 'x';
-}
-.notice .notice-close:hover {
-  opacity: 0.5;
-}
-.notice .notice-close:active {
-  opacity: 0.7;
-}
-.notice-error {
-  background: #f2dede;
-  color: #712d2d;
-}
-.notice-success {
-  background: #dff0d8;
-  color: #3d6c2a;
-}
-.notice-info {
-  background: #f0f0f0;
-  color: #575757;
-}
-.notice-warning {
-  background: #f9fad2;
-  color: #888b0f;
-}
+.notice{z-index:1000;}
+.notice .notice-close{font-family:Arial;position:absolute;top:5px;right:16px;font-size:16px;line-height:18px;font-weight:bold;color:#000;opacity:.2;text-shadow:0 1px 0 #fff;}
+.notice .notice-close:after{content:'x'}
+.notice .notice-close:hover{opacity:.5}
+.notice .notice-close:active{opacity:.7}
+.notice-error{background:#f2dede;color:#712d2d}
+.notice-success{background:#dff0d8;color:#3d6c2a}
+.notice-info{background:#f0f0f0;color:#575757}
+.notice-warning{background:#f9fad2;color:#888b0f}

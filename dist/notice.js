@@ -1,11 +1,10 @@
 /*!
- * notice - a jQuery notification plugin
+ * notice - A notification plugin
  * v0.3.1
  * https://github.com/jgallen23/notice
- * copyright JGA 2012
+ * copyright Greg Allen 2013
  * MIT License
 */
-
 (function($) {
   var timeout;
   $.notice = function(message, options) {

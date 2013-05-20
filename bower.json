@@ -1,0 +1,14 @@
+{
+  "name": "notice",
+  "description": "A notification plugin",
+  "version": "0.3.1",
+  "homepage": "https://github.com/jgallen23/notice",
+  "license": "MIT",
+  "copyright": "Greg Allen",
+  "main": "dist/notice.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "assert": "*"
+  }
+}
