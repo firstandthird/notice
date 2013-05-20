@@ -52,12 +52,9 @@ module.exports = function(grunt) {
         files: '<%= jshint.main %>',
         tasks: 'default' 
       },
-      ci: {
-        files: [
-          '<%= jshint.main %>',
-          'test/index.html'
-        ],
-        tasks: ['default', 'mocha']
+      css: {
+        files: 'lib/*.styl',
+        tasks: 'stylus'
       }
     },
     mocha: {
@@ -107,7 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-reloadr');
   grunt.loadNpmTasks('grunt-plato');
   grunt.registerTask('default', ['jshint', 'stylus', 'concat', 'uglify']);
-  grunt.registerTask('dev', ['connect:server', 'reloadr', 'watch:main']);
+  grunt.registerTask('dev', ['connect:server', 'reloadr', 'watch']);
   grunt.registerTask('ci', ['connect:server', 'watch:ci']);
   grunt.registerTask('reports', ['plato', 'connect:plato']);
 };
