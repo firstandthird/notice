@@ -1,6 +1,6 @@
 /*!
  * notice - A notification plugin
- * v0.3.1
+ * v0.3.2
  * https://github.com/jgallen23/notice
  * copyright Greg Allen 2013
  * MIT License
@@ -16,14 +16,14 @@
       if (timeout) {
         clearTimeout(timeout);
       }
-      
+
       $('.notice').animate({ height: 0 }, {
         complete: function() {
           $(this).remove();
         }
       });
     };
-    
+
     //close any open messages
     close();
 
@@ -35,7 +35,7 @@
     var containerOffset = container.offset();
     el = $(opts.template)
       .css({
-        zIndex: '1000',
+        zIndex: opts.zIndex,
         overflow: 'hidden',
         position: 'fixed',
         top: opts.offsetTop || containerOffset.top,
@@ -79,6 +79,8 @@
     //level (info, success, error)
     level: 'info',
     //top offset for notice
-    offsetTop: 0
+    offsetTop: 0,
+    zIndex: 1000
+
   };
 })(window.jQuery || window.Zepto);

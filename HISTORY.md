@@ -1,4 +1,12 @@
 
+0.3.2 / 2013-08-07 
+==================
+
+  * updated build process
+  * be able to pass in zIndex as option
+  * watch styl files
+  * updated to latest grunt, added bower.json
+
 0.3.1 / 2012-10-30 
 ==================
 
