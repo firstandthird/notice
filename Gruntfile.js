@@ -12,11 +12,20 @@ module.exports = function(grunt) {
     },
     jshint: {
       main: [
-        'Gruntfile.js', 
+        'Gruntfile.js',
         'bower.json',
         'lib/**/*.js',
         'test/*.js'
       ]
+    },
+    bower: {
+      main: {
+        dest: 'dist/_bower.js',
+        exclude: [
+          'assert',
+          'jquery'
+        ]
+      }
     },
     stylus: {
       flatten: {
@@ -47,21 +56,44 @@ module.exports = function(grunt) {
         dest: 'dist/notice.min.js'
       }
     },
+    clean: {
+      bower: [
+        'dist/_bower.js'
+      ],
+      dist: [
+        'dist'
+      ]
+    },
     watch: {
-      main: {
+      scripts: {
         files: '<%= jshint.main %>',
-        tasks: 'default' 
+        tasks: 'scripts',
+        options: {
+          livereload: true
+        }
       },
-      css: {
-        files: 'lib/*.styl',
-        tasks: 'stylus'
+      example: {
+        files: [
+          'example/*'
+        ],
+        options: {
+          livereload: true
+        }
+      },
+      grunt: {
+        files: [
+          'Gruntfile.js',
+          'test/index.html'
+        ],
+        tasks: 'default'
       }
     },
     mocha: {
       all: {
         src: 'test/index.html',
         options: {
-          run: true
+          run: true,
+          growl: true
         }
       }
     },
@@ -72,17 +104,11 @@ module.exports = function(grunt) {
         }
       }
     },
-    reloadr: {
-      main: [
-        'example/*',
-        'test/*',
-        'dist/*'
-      ]
-    },
     connect: {
       server:{
-        port: 8000,
-        base: '.'
+        options: {
+          hostname: '*'
+        }
       },
       plato: {
         port: 8000,
@@ -91,6 +117,13 @@ module.exports = function(grunt) {
           keepalive: true
         }
       }
+    },
+    bytesize: {
+      scripts: {
+        src: [
+          'dist/*'
+        ]
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -98,13 +131,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-concat-bower');
+  grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-bytesize');
+  grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  //grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-reloadr');
   grunt.loadNpmTasks('grunt-plato');
-  grunt.registerTask('default', ['jshint', 'stylus', 'concat', 'uglify']);
-  grunt.registerTask('dev', ['connect:server', 'reloadr', 'watch']);
-  grunt.registerTask('ci', ['connect:server', 'watch:ci']);
+  grunt.registerTask('scripts', ['jshint', 'bower', 'concat', 'uglify', 'clean:bower', 'bytesize']);
+  grunt.registerTask('styles', ['stylus', 'concat:css']);
+  grunt.registerTask('default', ['styles', 'scripts']);
+  grunt.registerTask('dev', ['default', 'connect:server', 'watch']);
   grunt.registerTask('reports', ['plato', 'connect:plato']);
 };
