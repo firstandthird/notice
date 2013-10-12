@@ -9,3 +9,7 @@ full:
     - 'dist/_bower.js'
     - 'lib/<%= name %>.js'
   dest: 'dist/<%= name %>.full.js'
+less:
+  src: 'dist/notice.css'
+  dest: 'dist/notice.css'
+

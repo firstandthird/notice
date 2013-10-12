@@ -1,0 +1,3 @@
+default:
+  src: 'lib/notice.less'
+  dest: 'dist/<%= name %>.css'

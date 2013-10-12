@@ -23,13 +23,13 @@
     }
   }
 }
-theme(name, color) {
-  .notice-{name} {
-    background: color;
-    color: darken(color, 60);
+.theme(@name, @color) {
+  .notice-@{name} {
+    background: @color;
+    color: darken(@color, 60);
   }
 }
-theme('error', #f2dede);
-theme('success', #dff0d8);
-theme('info', #f0f0f0);
-theme('warning', #f9fad2);
+.theme('error', #f2dede);
+.theme('success', #dff0d8);
+.theme('info', #f0f0f0);
+.theme('warning', #f9fad2);
