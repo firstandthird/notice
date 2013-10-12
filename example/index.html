@@ -3,8 +3,10 @@
   <meta charset="utf-8" />
   <head>
     <title></title>
-    <link rel="stylesheet" href="../dist/notice.css"/>
     <style>
+      body {
+        font-family: Helvetica, Arial;
+      }
       .wrapper {
         width: 980px;
         margin: 10px auto;
@@ -13,6 +15,13 @@
       .btns {
         padding-top: 40px;
       } 
+      div > p {
+        text-align: center;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 0 auto;
+        border-radius: 10px;
+      }
     </style>
   </head>
   <body>
@@ -24,12 +33,12 @@
         <button data-level="error">Error</button>
         <button data-top="100">Offset Top</button>
       </div>
-      <div>
-        <p class="notice-success">Success</p>
-        <p class="notice-warning">Warning</p>
-        <p class="notice-error">Error</p>
-        <p class="notice-info">Info</p>
-      </div>
+      <!--<div>-->
+        <!--<p class="notice-success">Success</p>-->
+        <!--<p class="notice-warning">Warning</p>-->
+        <!--<p class="notice-error">Error</p>-->
+        <!--<p class="notice-info">Info</p>-->
+      <!--</div>-->
     </div>
     <script src="../bower_components/jquery/jquery.js"></script>
     <script src="../dist/notice.js"></script>
@@ -44,7 +53,9 @@
           offsetTop: top
         });
       });
-      $.notice('this is a test message');
+      setTimeout(function() {
+        $.notice('this is a test message');
+      }, 1000);
     </script>
   </body>
 </html>

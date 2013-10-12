@@ -6,13 +6,8 @@ lib:
   tasks:
     - 'jshint'
     - 'script-dist'
-    - 'mocha'
+    #- 'mocha'
     - 'notify:generic'
-less:
-  files:
-    - 'lib/*.less'
-  tasks:
-    - 'less'
 test:
   files:
     - '<%= jshint.test %>'
