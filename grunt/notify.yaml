@@ -1,0 +1,6 @@
+generic:
+  options:
+    message: '<%= name %> build complete'
+watch:
+  options:
+    message: '<%= name %> watch started'

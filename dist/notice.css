@@ -5,13 +5,6 @@
  * copyright Greg Allen 2013
  * MIT License
 */
-/*!
- * notice - A notification plugin
- * v0.3.2
- * https://github.com/jgallen23/notice
- * copyright Greg Allen 2013
- * MIT License
-*/
 .notice{z-index:1000;}
 .notice .notice-close{font-family:Arial;position:absolute;top:5px;right:16px;font-size:16px;line-height:18px;font-weight:bold;color:#000;opacity:.2;text-shadow:0 1px 0 #fff;}
 .notice .notice-close:after{content:'x'}
