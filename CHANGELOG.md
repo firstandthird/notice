@@ -1,4 +1,17 @@
 
+0.4.0 / 2013-10-29 
+==================
+
+  * fixed broken grunt and excluded jquery form bower build
+  * updated build scripts
+  * added jquery to bower.json
+  * removed console.log
+  * added borderRadius and padding as options
+  * renable auto close
+  * moved styles into js
+  * swapped out stylus for less
+  * update build scripts
+
 0.3.2 / 2013-08-07 
 ==================
 
