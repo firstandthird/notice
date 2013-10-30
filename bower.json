@@ -2,11 +2,12 @@
   "name": "notice",
   "description": "A notification plugin",
   "version": "0.3.2",
-  "homepage": "https://github.com/jgallen23/notice",
+  "homepage": "https://github.com/firstandthird/notice",
   "license": "MIT",
   "copyright": "First + Third",
   "main": "dist/notice.js",
   "dependencies": {
+    "jquery": "1.*"
   },
   "devDependencies": {
     "assert": "*",
