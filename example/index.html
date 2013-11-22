@@ -54,8 +54,7 @@
 
         $.notice('this is a '+ level +' message', {
           level: level,
-          offsetTop: top,
-          offsetBottom: bottom,
+          offset: top || bottom,
           anchor: anchor
         });
       });
