@@ -31,8 +31,12 @@ $.notice.defaults = {
 	level: 'info',
 	//top offset for notice
 	offsetTop: 0,
+	//bottom offset for notice
+	offsetBottom: 0,
 	//left offset for notice
 	offsetLeft: 0,
+	// Where to anchor the notice. top or bottom
+	anchor: 'top',
 	//width of notice
 	width: '100%'
 };
