@@ -1,7 +1,7 @@
 
 /*!
  * notice - A notification plugin
- * v0.4.0
+ * v0.5.0
  * https://github.com/firstandthird/notice
  * copyright First + Third 2013
  * MIT License
@@ -14,12 +14,28 @@
     var opts = $.extend({}, $.notice.defaults, options);
     var el;
 
+    // offsetTop is deprecated.
+    // This should be removed in a few versions.
+    if(opts.offsetTop !== 0) {
+      opts.offset = opts.offsetTop;
+    }
+
     var close = function() {
       if (timeout) {
         clearTimeout(timeout);
       }
 
-      $('.notice').animate({ opacity: 0, top: '-='+animationOffset }, {
+      var animateProps = {
+        opacity: 0
+      };
+
+      if(opts.anchor === 'top') {
+        animateProps.top = '-=' + animationOffset;
+      } else {
+        animateProps.bottom = '-=' + animationOffset;
+      }
+
+      $('.notice').animate(animateProps, {
         complete: function() {
           $(this).remove();
         }
@@ -41,7 +57,6 @@
         zIndex: opts.zIndex,
         overflow: 'hidden',
         position: 'fixed',
-        top: opts.offsetTop || containerOffset.top,
         padding: opts.padding,
         display: 'block',
         margin: '0 auto',
@@ -65,11 +80,25 @@
         })
         .end()
       .appendTo(container);
-    el.css({
-        left: ((container.width() - el.width()) / 2) + containerOffset.left,
-        top: '-='+animationOffset
-      })
-      .animate({ opacity: 0.9, top: '+='+animationOffset });
+
+    var alignment = {
+      left: ((container.width() - el.width()) / 2) + containerOffset.left
+    };
+
+    var animateProps = {
+      opacity: 0.9
+    };
+
+    if(opts.anchor === 'top') {
+      alignment.top = (opts.offset || containerOffset.top) - animationOffset;
+      animateProps.top = '+=' + animationOffset;
+    } else {
+      alignment.bottom = opts.offsetBottom - animationOffset;
+      animateProps.bottom = '+=' + (opts.offset + ~~animationOffset);
+    }
+
+    el.css(alignment)
+      .animate(animateProps);
 
     if (typeof opts.timeout === 'number') {
       timeout = setTimeout(function() {
@@ -91,8 +120,9 @@
     timeout: 5000,
     //level (info, success, error)
     level: 'info',
-    //top offset for notice
     offsetTop: 0,
+    offset: 0,
+    anchor: 'top',
     zIndex: 1000,
     showClose: false,
     borderRadius: '10px',

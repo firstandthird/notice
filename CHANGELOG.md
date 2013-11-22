@@ -1,4 +1,13 @@
 
+0.5.0 / 2013-11-22 
+==================
+
+ * Merge pull request #9 from firstandthird/feature/8-anchor-bottom
+ * Changed offsetTop and offsetBottom to just be offset. Included some backwards compatibility for offsetTop.
+ * Added some docs.
+ * Cleaned up bottom code.
+ * Working anchor bottom.
+
 0.4.0 / 2013-10-29 
 ==================
 
