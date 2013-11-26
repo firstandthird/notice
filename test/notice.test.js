@@ -39,4 +39,46 @@ suite('notice', function() {
       testLevel(level);
     }
   });
+
+  suite('actions', function() {
+    test('should not hide when hovering', function(done) {
+      $.notice('testing', {
+        timeout: 200
+      });
+
+      $('.notice').trigger('mouseenter');
+
+      setTimeout(function() {
+        assert.equal($('.notice').length, 1);
+        done();
+      }, 900);
+    });
+
+    test('should hide when mouse leaves', function(done) {
+      $.notice('testing', {
+        timeout: 200
+      });
+
+      $('.notice').trigger('mouseenter');
+      $('.notice').trigger('mouseleave');
+
+      setTimeout(function() {
+        assert.equal($('.notice').length, 0);
+        done();
+      }, 900);
+    });
+
+    test('close button should close notice', function(done) {
+      $.notice('test close', {
+        showClose: true
+      });
+
+      $('.notice-close').click();
+
+      setTimeout(function() {
+        assert.equal($('.notice').length, 0);
+        done();
+      }, 900);
+    });
+  });
 });
