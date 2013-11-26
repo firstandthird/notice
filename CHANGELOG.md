@@ -1,4 +1,14 @@
 
+0.6.0 / 2013-11-26 
+==================
+
+ * Added semicolon to pass jshint
+ * Merge pull request #11 from firstandthird/dont-hide-on-hover
+ * Change function name from myTimeout to closeTimeout. Issue #6
+ * Merge branch 'dont-hide-on-hover' of github.com:firstandthird/notice into dont-hide-on-hover
+ * [timeout] stop timer on notice hover. restart on mouse out. Issue #6
+ * [timeout] stop timer on notice hover. restart on mouse out
+
 0.5.0 / 2013-11-22 
 ==================
 
