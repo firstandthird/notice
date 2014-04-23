@@ -5,7 +5,7 @@
   "homepage": "https://github.com/firstandthird/notice",
   "license": "MIT",
   "copyright": "First + Third",
-  "main": "dist/notice.js",
+  "main": "dist/notice.bower.js",
   "dependencies": {
     "jquery": "1.*"
   },

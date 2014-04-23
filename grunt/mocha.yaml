@@ -1,6 +1,6 @@
 options:
   run: true
   growl: true
-  reporter: 'Spec'
+  reporter: Spec
 all:
-  src: 'test/index.html'
+  src: test/index.html

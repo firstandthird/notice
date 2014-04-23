@@ -1,0 +1,4 @@
+styles:
+  src:
+    - 'lib/<%= name %>.less'
+  dest: 'dist/<%= name %>.css'

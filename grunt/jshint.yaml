@@ -1,4 +1,4 @@
-build:
+tools:
   - 'Gruntfile.js'
   - 'bower.json'
 lib:
