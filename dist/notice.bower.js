@@ -5,7 +5,6 @@
  * copyright First+Third 2014
  * MIT License
 */
-
 (function($) {
   var timeout;
   $.notice = function(message, options) {

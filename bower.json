@@ -1,10 +1,10 @@
 {
   "name": "notice",
   "description": "A notification plugin",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "https://github.com/firstandthird/notice",
   "license": "MIT",
-  "copyright": "First + Third",
+  "copyright": "First+Third",
   "main": "dist/notice.bower.js",
   "dependencies": {
     "jquery": "1.*"

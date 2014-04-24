@@ -1,4 +1,13 @@
 
+0.7.0 / 2014-04-24 
+==================
+
+  * Updated build scripts.
+  * Merge pull request #12 from firstandthird/feature/10-tests
+  * Added tests for user actions.
+  * Merge branch 'master' into feature/10-tests
+  * A good start on tests.
+
 0.6.0 / 2013-11-26 
 ==================
 
