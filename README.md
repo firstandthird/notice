@@ -1,8 +1,8 @@
-#Notice
+# Notice
 
 Notice is a jQuery plugin for simple notifications
 
-##Usage
+## Usage
 
 ```javascript
 //info

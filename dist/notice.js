@@ -1,163 +1,76 @@
-/*!
- * notice - A notification plugin
- * v0.7.0
- * https://github.com/firstandthird/notice
- * copyright First+Third 2014
- * MIT License
-*/
+var Notice = (function () {
+'use strict';
 
-(function($) {
-  var timeout;
-  $.notice = function(message, options) {
+var openElement = void 0;
 
-    var animationOffset = '10px';
-    var opts = $.extend({}, $.notice.defaults, options);
-    var el;
+function close() {
+  openElement.parentNode.removeChild(openElement);
+  openElement = null;
+}
 
-    // offsetTop is deprecated.
-    // This should be removed in a few versions.
-    if(opts.offsetTop !== 0) {
-      opts.offset = opts.offsetTop;
-    }
+function closeTimeout(timeout) {
+  return setTimeout(close, timeout);
+}
 
-    var close = function() {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
+function notify(message) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$anchor = _ref.anchor,
+      anchor = _ref$anchor === undefined ? 'top' : _ref$anchor,
+      _ref$container = _ref.container,
+      container = _ref$container === undefined ? 'body' : _ref$container,
+      _ref$level = _ref.level,
+      level = _ref$level === undefined ? 'info' : _ref$level,
+      _ref$closeText = _ref.closeText,
+      closeText = _ref$closeText === undefined ? 'Close alert' : _ref$closeText,
+      _ref$showClose = _ref.showClose,
+      showClose = _ref$showClose === undefined ? false : _ref$showClose,
+      _ref$timeout = _ref.timeout,
+      timeout = _ref$timeout === undefined ? 5000 : _ref$timeout;
 
-      var animateProps = {
-        opacity: 0
-      };
+  // Close any open ones
+  close();
 
-      if(opts.anchor === 'top') {
-        animateProps.top = '-=' + animationOffset;
-      } else {
-        animateProps.bottom = '-=' + animationOffset;
-      }
+  if (message === 'close' || !message) {
+    return;
+  }
 
-      $('.notice').animate(animateProps, {
-        complete: function() {
-          $(this).remove();
-        }
-      });
-    };
+  var role = 'status';
+  var live = 'polite';
+  var timeoutId = null;
 
-    var closeTimeout = function() {
-      if (typeof opts.timeout === 'number') {
-        timeout = setTimeout(function() {
-          close();
-        }, opts.timeout);
-      }
-    };
+  if (level === 'warning' || level === 'error') {
+    role = 'alert';
+    live = 'assertive';
+  }
 
-    //close any open messages
-    close();
+  openElement = document.createElement('div');
+  openElement.setAttribute('role', role);
+  openElement.setAttribute('aria-live', live);
+  addClass(openElement, 'notice');
+  addClass(openElement, 'notice-' + level);
+  addClass(openElement, 'notice-anchor-' + anchor);
 
-    if (message == 'close') {
-      return;
-    }
+  var html = '<span class="notice-text">' + message + '</span>';
 
-    var container = $(opts.container);
-    var containerOffset = container.offset();
+  if (showClose) {
+    html += '<button class="notice-close" aria-label="' + closeText + '"></button>';
+  }
 
-    el = $(opts.template)
-      .css({
-        zIndex: opts.zIndex,
-        overflow: 'hidden',
-        position: 'fixed',
-        padding: opts.padding,
-        display: 'block',
-        margin: '0 auto',
-        opacity: 0,
-        'border-radius': opts.borderRadius,
-        'line-height': opts.height+'px',
-        'text-align': 'center',
-        background: opts.levels[opts.level].background,
-        color: opts.levels[opts.level].foreground
-      })
-      .addClass((opts.level)?'notice-'+opts.level:false)
-      .find('.notice-text')
-        .html(message)
-        .end()
-      .find('.notice-close')
-        .css({
-          display: (opts.showClose) ? 'block' : 'none'
-        })
-        .on('click', function() {
-          close();
-        })
-        .end()
-      .appendTo(container);
+  findOne(container).appendChild(openElement);
 
-    var alignment = {
-      left: ((container.width() - el.width()) / 2) + containerOffset.left
-    };
+  if (typeof timeout === 'number') {
+    timeoutId = closeTimeout(timeout);
 
-    var animateProps = {
-      opacity: 0.9
-    };
+    hover(openElement, function () {
+      clearTimeout(timeoutId);
+    }, function () {
+      timeoutId = closeTimeout(timeout);
+    });
+  }
+}
 
-    if(opts.anchor === 'top') {
-      alignment.top = (opts.offset || containerOffset.top) - animationOffset;
-      animateProps.top = '+=' + animationOffset;
-    } else {
-      alignment.bottom = opts.offsetBottom - animationOffset;
-      animateProps.bottom = '+=' + (opts.offset + ~~animationOffset);
-    }
+return notify;
 
-    el.css(alignment)
-      .animate(animateProps);
+}());
 
-    closeTimeout();
-
-    // Stop timeout on hover, restart on mouse leave
-    $(el).hover(
-      function() {
-        clearTimeout(timeout);
-      }, function() {
-        closeTimeout();
-      }
-    );
-
-    return el;
-  };
-
-  $.notice.defaults = {
-    //container to append notice to
-    container: 'body',
-    //template (shouldn't be changed)
-    template: '<div class="notice"><span class="notice-text"></span><div class="notice-close"></div></div>',
-    //height of notice
-    height: 30,
-    //timeout before auto closing, set to false to disable auto close
-    timeout: 5000,
-    //level (info, success, error)
-    level: 'info',
-    offsetTop: 0,
-    offset: 0,
-    anchor: 'top',
-    zIndex: 1000,
-    showClose: false,
-    borderRadius: '10px',
-    padding: '10px 20px 10px 20px',
-    levels: {
-      info: {
-        background: '#333',
-        foreground: '#fff'
-      },
-      success: {
-        background: '#dff0d8',
-        foreground: '#3d6c2a'
-      },
-      warning: {
-        background: '#f9fad2',
-        foreground: '#888b0f'
-      },
-      error: {
-        background: '#f2dede',
-        foreground: '#712d2d'
-      }
-    }
-
-  };
-})(window.jQuery || window.Zepto);
+//# sourceMappingURL=notice.js.map
