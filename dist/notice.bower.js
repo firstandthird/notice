@@ -2,14 +2,14 @@
  * notice - A notification plugin
  * v0.7.0
  * https://github.com/firstandthird/notice
- * copyright First+Third 2014
+ * copyright First+Third 2017
  * MIT License
 */
 (function($) {
   var timeout;
   $.notice = function(message, options) {
 
-    var animationOffset = '10px';
+    var animationOffset = 10;
     var opts = $.extend({}, $.notice.defaults, options);
     var el;
 
