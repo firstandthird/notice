@@ -4,7 +4,7 @@ Notice is a plugin for simple notifications.
 
 ## Usage
 
-- Import notice:
+Import notice:
 
 ```javascript
   import Notice form 'notice';
@@ -12,17 +12,20 @@ Notice is a plugin for simple notifications.
   Notice('Test Notification');
 ```
 
-- Import [default CSS styles](styles.css)
+Import [default CSS styles](styles.css)
 
 ## Notice(message, [options])
 
-`level` _{string='default'} Options: 'default', 'info', 'success', 'warning', 'error'}_ - Type of alert
+`message` {string} - Notice text to display
 
-`timeout` _{number=5000}_ - Timeout before auto closing
+List of options:
 
-`container` _{string|Element|NodeList='body'}_ - Container to append notice to
-
-`showClose` _{boolean=true}_ - Display close button
+| Option      | Default                                                                         | Action                        |
+|-------------|---------------------------------------------------------------------------------|-------------------------------|
+| `level`     | _{string='default'}_ Options: 'default', 'info', 'success', 'warning', 'error'} | Type of alert                 |
+| `timeout`   | _{number=5000}_                                                                 | Timeout before auto closing   |
+| `container` | _{string&#124;Element&#124;NodeList='body'}_                                              | Container to append notice to |
+| `showClose` | _{boolean=true}_                                                                | Display close button          |
 
 ```javascript
   Notice('My message', {
@@ -33,10 +36,6 @@ Notice is a plugin for simple notifications.
   });
 };
 ```
-
-## Development
-
-`npm i && npm run dev`
 
 ## License
 
