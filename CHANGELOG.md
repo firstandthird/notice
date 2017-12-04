@@ -1,9 +1,16 @@
+1.0.0 / 2017-12-04
+==================
+
+  * Use ES6 new features
+  * Update packages
+  * Remove jQuery dependency
+
 0.7.1 / 2017-08-31
 ==================
 
   * Fixing NAN bug
 
-0.7.0 / 2014-04-24 
+0.7.0 / 2014-04-24
 ==================
 
   * Updated build scripts.
@@ -12,7 +19,7 @@
   * Merge branch 'master' into feature/10-tests
   * A good start on tests.
 
-0.6.0 / 2013-11-26 
+0.6.0 / 2013-11-26
 ==================
 
  * Added semicolon to pass jshint
@@ -22,7 +29,7 @@
  * [timeout] stop timer on notice hover. restart on mouse out. Issue #6
  * [timeout] stop timer on notice hover. restart on mouse out
 
-0.5.0 / 2013-11-22 
+0.5.0 / 2013-11-22
 ==================
 
  * Merge pull request #9 from firstandthird/feature/8-anchor-bottom
@@ -31,7 +38,7 @@
  * Cleaned up bottom code.
  * Working anchor bottom.
 
-0.4.0 / 2013-10-29 
+0.4.0 / 2013-10-29
 ==================
 
   * fixed broken grunt and excluded jquery form bower build
@@ -44,7 +51,7 @@
   * swapped out stylus for less
   * update build scripts
 
-0.3.2 / 2013-08-07 
+0.3.2 / 2013-08-07
 ==================
 
   * updated build process
@@ -52,12 +59,12 @@
   * watch styl files
   * updated to latest grunt, added bower.json
 
-0.3.1 / 2012-10-30 
+0.3.1 / 2012-10-30
 ==================
 
   * removed rgba from theme
 
-0.3.0 / 2012-10-30 
+0.3.0 / 2012-10-30
 ==================
 
   * automatically fit to it's container
@@ -70,7 +77,7 @@
   * removed unnecessary files
   * added grunt and package.json
 
-0.2.0 / 2012-10-24 
+0.2.0 / 2012-10-24
 ==================
 
   * updated readme
@@ -78,7 +85,7 @@
   * added themes
   * commented options
 
-0.1.0 / 2012-10-23 
+0.1.0 / 2012-10-23
 ==================
 
   * refactored a bit, added example, makefile
