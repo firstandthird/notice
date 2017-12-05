@@ -1,84 +1,104 @@
-suite('notice', function() {
-  teardown(function() {
-    $('.notice').remove();
+/*eslint new-cap: ["error", { "capIsNewExceptions": ["Notice"] }]*/
+
+import Notice from '../index';
+import test from 'tape-rollup';
+import { find, findOne } from 'domassist';
+
+const init = () => {
+  const container = document.createElement('div');
+  container.id = 'fixture';
+  document.body.appendChild(container);
+};
+
+const setup = () => {
+  const container = document.getElementById('fixture');
+  return container;
+};
+
+const teardown = () => {
+  const container = setup();
+  find('.notice', container).forEach(notice => notice.remove());
+};
+
+init();
+
+test('Notices container is added to document', assert => {
+  const c = setup();
+
+  Notice('test', {
+    container: c,
+    level: 'info'
   });
 
-  suite('init', function() {
-    test('should have notice method', function() {
-      assert.ok(typeof $.notice === 'function');
-    });
+  assert.ok(findOne('.notice-wrapper', c), 'notices wrapper is created correctly');
+
+  teardown();
+  assert.end();
+});
+
+test('Notices are added to notices container', assert => {
+  const c = setup();
+
+  Notice('test', {
+    container: c,
+    level: 'info'
   });
 
-  suite('display', function() {
-    setup(function() {
-      $.notice('test notice');
-    });
-    test('notice container should exist', function() {
-      assert.equal($('.notice').length, 1);
-    });
-
-    test('notice should contain passed text', function() {
-      assert.equal($('.notice .notice-text').text(), 'test notice');
-    });
+  Notice('test', {
+    container: c,
+    level: 'info'
   });
 
-  suite('levels', function() {
-    var levels = $.notice.defaults.levels;
+  assert.equals(find('.notice', c).length, 2, 'notices are created correctly');
 
-    function testLevel(level) {
-      test('level: ' + level, function() {
-        $.notice('test notice', {
-          level: level
-        });
+  teardown();
+  assert.end();
+});
 
-        assert.ok($('.notice').hasClass('notice-'+level));
-      });
-    }
+test('Notices text is addded', assert => {
+  const c = setup();
 
-    for(var level in levels) {
-      testLevel(level);
-    }
+  Notice('Test message', {
+    container: c,
+    level: 'info'
   });
 
-  suite('actions', function() {
-    test('should not hide when hovering', function(done) {
-      $.notice('testing', {
-        timeout: 200
-      });
+  assert.equals(findOne('.notice', c).textContent, 'Test message', 'notices text is correct');
 
-      $('.notice').trigger('mouseenter');
+  teardown();
+  assert.end();
+});
 
-      setTimeout(function() {
-        assert.equal($('.notice').length, 1);
-        done();
-      }, 900);
-    });
+test('Notices are automatically closed', assert => {
+  const c = setup();
 
-    test('should hide when mouse leaves', function(done) {
-      $.notice('testing', {
-        timeout: 200
-      });
-
-      $('.notice').trigger('mouseenter');
-      $('.notice').trigger('mouseleave');
-
-      setTimeout(function() {
-        assert.equal($('.notice').length, 0);
-        done();
-      }, 900);
-    });
-
-    test('close button should close notice', function(done) {
-      $.notice('test close', {
-        showClose: true
-      });
-
-      $('.notice-close').click();
-
-      setTimeout(function() {
-        assert.equal($('.notice').length, 0);
-        done();
-      }, 900);
-    });
+  Notice('Test message', {
+    container: c,
+    level: 'info',
+    timeout: 200
   });
+
+  setTimeout(() => {
+    assert.notOk(find('.notice', c).length, 'notice is correctly removed');
+
+    teardown();
+    assert.end();
+  }, 500);
+});
+
+test('Notices are closed by button click', assert => {
+  const c = setup();
+
+  Notice('Test message', {
+    container: c,
+    level: 'info',
+    timeout: 200
+  });
+
+  findOne('.notice-close', c).click();
+
+  assert.notOk(find('.notice', c).length, 'notice is correctly removed on close click');
+
+  teardown();
+  assert.end();
 });

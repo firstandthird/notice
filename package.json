@@ -1,29 +1,67 @@
 {
-  "name": "notice",
-  "version": "0.0.0",
-  "private": true,
-  "devDependencies": {
-    "grunt": "0.4.2",
-    "grunt-bytesize": "~0.1.0",
-    "grunt-concat-bower": "~0.3.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-connect": "~0.7.1",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-mocha": "~0.4.1",
-    "grunt-notify": "~0.2.13",
-    "grunt-shell": "~0.6.4",
-    "load-grunt-config":"~0.7.1",
-    "jshint-stylish": "~0.1.5",
-    "grunt-jscs-checker": "~0.4.1",
-    "grunt-contrib-less": "~0.11.0"
+  "name": "@firstandthird/notice",
+  "version": "1.0.0",
+  "description": "Notice is a library for simple notifications",
+  "main": "dist/notice.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "scriptkit",
+    "build": "scriptkit build",
+    "test": "cat test/notice.test.dist.js | tape-run --static . --browser phantomjs --render tap-spec",
+    "dev": "scriptkit dev",
+    "prepublish": "scriptkit"
   },
-  "meta": {
-    "ftInit": {
-      "version": "0.0.5",
-      "type": "browser"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstandthird/notice.git"
+  },
+  "keywords": [
+    "notice",
+    "alert",
+    "notification"
+  ],
+  "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/notice/issues"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": "firstandthird",
+    "plugins": [
+      "compat"
+    ],
+    "rules": {
+      "compat/compat": 2
     }
+  },
+  "scriptkit": {
+    "files": {
+      "dist/notice.js": "index.js",
+      "test/notice.test.dist.js": "test/notice.test.js"
+    },
+    "scripts": {
+      "babel": {
+        "exclude": [
+          "node_modules/tape-rollup/*"
+        ]
+      }
+    }
+  },
+  "homepage": "https://github.com/firstandthird/notice#readme",
+  "devDependencies": {
+    "domassist": "^1.9.1",
+    "domodule": "^5.1.3",
+    "eslint": "^4.12.0",
+    "eslint-config-firstandthird": "4.1.1",
+    "eslint-plugin-compat": "^2.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "phantomjs-prebuilt": "2.1.16",
+    "scriptkit": "0.3.0",
+    "tap-spec": "4.1.1",
+    "tape-rollup": "4.6.4",
+    "tape-run": "3.0.0"
   }
 }

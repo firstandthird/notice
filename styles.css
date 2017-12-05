@@ -1,0 +1,118 @@
+
+.notice-wrapper * {
+  box-sizing: border-box;
+}
+
+.notice-wrapper {
+  bottom: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  height: 100vh;
+  max-width: 250px;
+  position: fixed;
+  right: 10px;
+}
+
+.notice {
+    animation: fadeIn .25s forwards;
+    background: #777;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    line-height: 30px;
+    margin-bottom: 5px;
+    opacity: 0;
+    padding: 10px 20px;
+    position: relative;
+    position: relative;
+    text-align: center;
+    visibility: hidden;
+    width: 100%;
+}
+
+.notice:hover .notice-close,
+.notice:focus .notice-close {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+
+.notice-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 0 rgba(0,0,0,.3);
+  white-space: nowrap;
+  width: 100%;
+}
+
+.notice-close {
+  background: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  transform-origin: bottom;
+  transform: scale(.8);
+  transition-timing-function: cubic-bezier(.68, -.55, .265, 1.55);
+  transition: all .3s ease;
+  transition: all .3s ease;
+  visibility: hidden;
+  width: 20px;
+}
+
+.notice-close:before, .notice-close:after {
+  background-color: #fff;
+  content: '';
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  top: 5px;
+  transform: translateX(-50%);
+  width: 2px;
+}
+
+.notice-close:before {
+  transform: rotate(45deg);
+}
+
+.notice-close:after {
+  transform: rotate(-45deg);
+}
+
+.notice-default {
+  background: #777;
+}
+
+.notice-info {
+  background: #209cee;
+}
+
+.notice-success {
+  background: #23d160;
+}
+
+.notice-warning {
+  background: #ffdd57;
+}
+
+.notice-error {
+  background: #ff3860;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20%);
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+        visibility: visible;
+    }
+}

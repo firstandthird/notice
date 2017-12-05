@@ -1,62 +1,66 @@
-#Notice
+# Notice
 
-Notice is a jQuery plugin for simple notifications
+Notice is a plugin for simple notifications.
 
-##Usage
+## Installation
+
+`npm install @firstandthird/notice`
+
+## Usage
+
+Import notice:
 
 ```javascript
-//info
-$.notice('message');
+  import Notice form 'notice';
 
-//success
-$.notice('success!', { level: 'success' });
-
-//error
-$.notice('error', { level: 'error' });
+  Notice('Test Notification');
 ```
 
-##Options
+Import [default CSS styles](styles.css)
+
+## Notice(message, [options])
+
+`message` {string} - Notice text to display
+
+List of options:
+
+| Option      | Default                                                                         | Action                        |
+|-------------|---------------------------------------------------------------------------------|-------------------------------|
+| `level`     | _{string='default'}_ Options: 'default', 'info', 'success', 'warning', 'error'} | Type of alert                 |
+| `timeout`   | _{number=5000}_                                                                 | Timeout before auto closing   |
+| `container` | _{string&#124;Element&#124;NodeList='body'}_                                              | Container to append notice to |
+| `showClose` | _{boolean=true}_                                                                | Display close button          |
 
 ```javascript
-$.notice.defaults = {
-	//container to append notice to
-	container: 'body',
-	//template (shouldn't be changed)
-	template: '<div class="notice"><span class="notice-text"></span><div class="notice-close"></div></div>',
-	//height of notice
-	height: 30,
-	//timeout before auto closing, set to false to disable auto close
-	timeout: 5000,
-	//level (info, success, error)
-	level: 'info',
-	//top offset for notice
-	offsetTop: 0,
-	//bottom offset for notice
-	offsetBottom: 0,
-	//left offset for notice
-	offsetLeft: 0,
-	// Where to anchor the notice. top or bottom
-	anchor: 'top',
-	//width of notice
-	width: '100%'
+  Notice('My message', {
+    level: 'info'
+    timeout: 2000,
+    container: document.body
+    showClose: true
+  });
 };
 ```
 
-##Installation
-CSS provides some default styles, it is optional.
+## License
 
-- Development: [JS](https://raw.github.com/jgallen23/notice/master/dist/notice.js) | [CSS](https://raw.github.com/jgallen23/notice/master/dist/notice.css)
-- Production: [JS](https://raw.github.com/jgallen23/notice/master/dist/notice.min.js) | [CSS](https://raw.github.com/jgallen23/notice/master/dist/notice.min.css)
+### MIT License
 
-##Building
+Copyright (c) 2016 First+Third
 
-```
-npm install
-./node_modules/.bin/grunt
-```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-##Development
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-```
-./node_modules/.bin/grunt dev
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
