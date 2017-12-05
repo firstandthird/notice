@@ -2,6 +2,10 @@
 
 Notice is a plugin for simple notifications.
 
+## Installation
+
+`npm install @firstandthird/notice`
+
 ## Usage
 
 Import notice:

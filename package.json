@@ -1,5 +1,5 @@
 {
-  "name": "notice",
+  "name": "@firstandthird/notice",
   "version": "1.0.0",
   "description": "Notice is a library for simple notifications",
   "main": "dist/notice.js",
