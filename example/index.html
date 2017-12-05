@@ -2,65 +2,36 @@
 <html lang="en">
   <meta charset="utf-8" />
   <head>
-    <title></title>
+    <title>Notice - Example</title>
     <style>
       body {
         font-family: Helvetica, Arial;
       }
       .wrapper {
-        width: 980px;
-        margin: 10px auto;
-        border: 1px solid #ccc;
-      }
-      .btns {
-        padding-top: 40px;
-      } 
-      div > p {
-        text-align: center;
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 0 auto;
-        border-radius: 10px;
+        padding: 1em;
       }
     </style>
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <div class="wrapper">
-      <div class="btns">
-        <button>Info</button>
-        <button data-level="success">Success</button>
-        <button data-level="warning">Warning</button>
-        <button data-level="error">Error</button>
-        <button data-top="100">Offset Top</button>
-        <button data-level="success" data-anchor="bottom">Bottom</button>
-        <button data-bottom="100" data-anchor="bottom">Offset Bottom</button>
-      </div>
-      <!--<div>-->
-        <!--<p class="notice-success">Success</p>-->
-        <!--<p class="notice-warning">Warning</p>-->
-        <!--<p class="notice-error">Error</p>-->
-        <!--<p class="notice-info">Info</p>-->
-      <!--</div>-->
+      <h2>Click to display notices</h2>
+      <button data-level="default">Default</button>
+      <button data-level="success">Success</button>
+      <button data-level="warning">Warning</button>
+      <button data-level="error">Error</button>
+      <button data-level="info">Info</button>
     </div>
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../dist/notice.js"></script>
     <script>
-      $.notice.defaults.container = '.wrapper';
-      $('button').on('click', function() {
-        var level = $(this).data('level') || 'info';
-        var top = $(this).data('top') || 0;
-        var bottom = $(this).data('bottom') || 0;
-        var anchor = $(this).data('anchor') || 'top';
-
-        $.notice('this is a '+ level +' message', {
-          level: level,
-          offset: top || bottom,
-          anchor: anchor
+      document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', (ev) => {
+          Notice('Test notification', {
+            level: ev.currentTarget.dataset.level,
+            timeout: 6000
+          });
         });
       });
-      setTimeout(function() {
-        $.notice('this is a test message');
-      }, 1000);
     </script>
   </body>
 </html>
